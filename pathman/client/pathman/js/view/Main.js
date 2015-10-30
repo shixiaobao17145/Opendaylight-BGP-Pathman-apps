@@ -15,7 +15,7 @@
                         style:'{#model.terminalContainerPos}',
                         'class': 'terminal-container',
                         template: {
-                            type: 'odl.TerminalWindow',
+                            type: 'odl.WsshTerminalWindow',
                             props: {
                                 maximized: "{value.maximized,direction=<>}",
                                 opened: "{value.opened}",

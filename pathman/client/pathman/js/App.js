@@ -38,7 +38,7 @@
     var host = location.host;
     var protocol = location.protocol;
     odl.Config = new nx.Config({
-        socketUrl:'ws://'+host+':8080/APP/webs/sock/tc'
+        socketUrl:'ws://'+location.hostname+':8008/message/terminal/'
     });
     var shell = new Shell();
     /**

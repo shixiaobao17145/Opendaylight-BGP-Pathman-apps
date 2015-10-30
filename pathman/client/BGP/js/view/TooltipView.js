@@ -23,12 +23,13 @@
                         },
                         {
                             tag: 'a',
+							name:'terminal',
                             props: {
                                 href: '#',
                                 style: "font-size:12px;float:right;line-height:20px;color:#1BAAFD;"
                             },
                             events: {
-//                                click: '{#model._openTerminal}'
+                                click: '{#model._openTerminal}'
                             },
                             content: 'Terminal'
                         }
@@ -127,6 +128,13 @@
             onAttach:function(parent,index){
                 this.inherited(parent,index);
 //                this.model()._loadInterfaces(this.node());
+				var cfg = window.backend_cfg;
+				if(cfg){
+					var terminal_enable = cfg.wssh_server_enable;
+					if(terminal_enable===false){
+						this.view('terminal').dom().$dom.style.display='none';
+					}
+				}
             }
         }
     });

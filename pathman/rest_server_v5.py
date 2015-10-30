@@ -121,6 +121,24 @@ class Commands(object):
             "keyfile": os.path.join(data_dir, "server.key"),
             })
             """
+
+        #startup the wssh server
+        if wssh_server_enable:
+            import wssh_server
+            wssh_server.threading_start(port=wssh_server_port);
+            
+        #generate the backend config file for frontend
+        backend_cfg = {
+            'wssh_server_enable':wssh_server_enable,
+            'wssh_server_port':wssh_server_port
+        }
+        backend_cfg_str = 'var backend_cfg=%s' % json.dumps(backend_cfg);
+        from os import path
+        backend_cfg_file = open(path.join(path.split(path.abspath(__file__))[0],'client/js/backend_cfg.js'),'w')
+        backend_cfg_file.write(backend_cfg_str)
+        backend_cfg_file.close();
+        
+        
         
         #http_server.listen(int(port))
         application.listen(int(port))
