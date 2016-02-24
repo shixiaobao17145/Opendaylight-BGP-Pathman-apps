@@ -49,10 +49,12 @@
                 });
             },
             _openTerminal: function (sender, evt) {
+				console.log('ready to open Terminal');
                 var model = sender.owner().node().model();
                 var address = model.get('ipaddress');
 //                var port = model.port;
                 var name = model.get('name');
+				
                 var terminalWindows = this.terminalWindows();
                 var terminalModel = terminalWindows.getItem(name);
                 var terminalService = this.terminalService();
@@ -84,7 +86,7 @@
             },
             showSideBar: function () {
 //                console.log('showing list bar');
-                this.terminalContainerPos("margin-right:30%");
+                this.terminalContainerPos("margin-right:35%");
                 $('div.listBar').addClass('expandListBar');
                 $('div.ui-main').addClass('contractMain');
                 setTimeout(this.topo().adaptToContainer.bind(this.topo()), 100);

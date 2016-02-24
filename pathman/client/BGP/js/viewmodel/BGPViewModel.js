@@ -66,7 +66,7 @@
             },
             _openTerminal: function (sender, evt) {
                 var model = sender.owner().node().model();
-                var address = model.get('ipaddress');
+                var address = model.get('ipaddress')||model.get('loopback');
 //                var port = model.port;
                 var name = model.get('name');
                 var terminalWindows = this.terminalWindows();

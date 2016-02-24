@@ -28,3 +28,8 @@ odl_port = '8181'
 odl_user = 'admin'
 odl_password = 'admin'
 log_file = '/tmp/pathman.log'
+
+
+wssh_server_enable = True
+wssh_server_port = 5000
+wssh_server_log_file='/tmp/wssh_server.log'
